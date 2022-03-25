@@ -43,7 +43,9 @@ async def jqueryfunc():
 
 @api.get("/check")
 async def checkfunc(myvalue: str):
-    print("Checking: "+myvalue)
+    email, password = myvalue.split(",")
+    print("Checking: "+check)
+    
     if 1==1:
         return {"Result": "Now"}
     else:
@@ -54,6 +56,8 @@ async def loginfunc():
     with open(loginfile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
+
 
 @api.get("/home")
 async def homefunc():
