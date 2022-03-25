@@ -48,9 +48,9 @@ async def jqueryfunc():
 async def checkfunc(myvalue: str):
     print("Checking: "+check)
     email, password = myvalue.split(",")
-    check_email_password = calldb("login", email, password)
-    
-    if email, password != check_email_password :
+    check_email = calldb("login", email)
+    check_password = calldb("login", password)
+    if email != check_email and password != check_password:
         return print("Please try again as your login information is wrong. ")
     else :
         homefunc("/home")
@@ -70,6 +70,7 @@ async def loginfunc():
 
 @api.get("/home")
 async def homefunc():
+
     with open(homefile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
