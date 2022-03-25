@@ -1,2 +1,6 @@
-[user]
+[userpassword]
 user1 = apple
+
+[userid]
+user1 = 11
+
