@@ -18,7 +18,7 @@ just run this file and webserver will be started
 JSONObject = Dict[AnyStr, Any]
 JSONArray = List[Any]
 JSONStructure = Union[JSONArray, JSONObject]
-jqueryfile = os.path.realpath('../templates0/jquery.js')
+jqueryfile = os.path.realpath('../templates/jquery.js')
 loginfile = os.path.realpath('../templates/login/Login.html')
 homefile = os.path.realpath('../templates/home/Home.html')
 loan_amount = os.path.realpath('../templates/home/Home.html')
