@@ -21,7 +21,9 @@ jqueryfile = os.path.realpath('../templates0/jquery.js')
 loginfile = os.path.realpath('../templates/login/login.html')
 homefile = os.path.realpath('../templates/home.html')
 productfile = os.path.realpath('../templates/product.html')
+loan_amount
 add_productfile = os.path.realpath('../templates/add_product.html')
+balance
 basefile = os.path.realpath('../templates/base.html')
 indexfile = os.path.realpath('../templates/index.html')
 
@@ -58,22 +60,21 @@ async def loginfunc():
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
 
-
 @api.get("/home")
 async def homefunc():
     with open(homefile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
-@api.get("/product")
-async def productfunc():
-    with open(productfile, 'r') as temp6:
+@api.get("/loan_amount")
+async def loan_amountfunc():
+    with open(loan_amount, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
-@api.get("/addproduct")
-async def addproductfunc():
-    with open(add_productfile, 'r') as temp6:
+@api.get("/balance")
+async def balancefunc():
+    with open(balance, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
