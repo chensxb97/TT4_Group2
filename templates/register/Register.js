@@ -19,6 +19,8 @@ function userRegister() {
             if (val === "Success") {
                 alert("Registration Successful, directing you to home page");
                 document.location.href = "../home/Home.html"
+            } else {
+                alert("Error: " + val);
             }
         });
     });
