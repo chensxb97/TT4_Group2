@@ -51,7 +51,7 @@ async def checkfunc(myvalue: str):
     check_password = db(login, password)
     
     if email != check_email or password != check_password:
-        print("Please try again as your login information is wrong. ")
+        return print("Please try again as your login information is wrong. ")
     else :
         homefunc("/home")
 
