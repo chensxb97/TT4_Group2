@@ -19,17 +19,27 @@
     padding-left: 24px;
 }
 
-.main_div_1{
-
+.main_div_1 {
+    width: 90%;
+    margin: 0 auto;
+    background: #f4f4f4;
+    padding: 12px 24px 40px 24px;
 }
 
-.main_div_table_1{
+.main_div_table_1 {
+    padding: 20px 100px 20px 100px;
 }
 
-.main_div_2{
-
+.content_spacing {
+    padding-right: 400px;
 }
 
-.main_div_table_1{
+.main_div_2 {
+    width: 90%;
+    margin: 0 auto;
+    padding: 12px 24px 40px 24px;
+}
+
+.main_div_table_1 {
 
 }
