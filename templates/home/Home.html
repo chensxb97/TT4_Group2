@@ -1,0 +1,89 @@
++<!doctype html>
+<html lang="en">
+<head>
+    <link href="Login.css" type="text/css" rel="stylesheet">
+    <script src="Login.css" type="text/javascript"></script>
+    <script type="text/javascript" src="Home.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body onload="load()">
+    <center>
+        <h1>Welcome, {{user_name}}!</h1>
+        <table>
+            <tr>
+                <b>Current Account Balance:</b> {{account_balance}}!
+            </tr>
+            <br>
+            </br>
+            <div id="Current Loans">
+                <b>Current Loans</b>
+                <table id="myCurrentLoans"  border="1" cellpadding="2">
+                    <tr>
+                        <td><b>S/N</b></td>
+                        <td><b>Date</b></td>
+                        <td><b>Description</b></td>
+                        <td><b>Balance</b></td>
+                    </tr>
+                </table>
+                &nbsp;
+            </div>
+            <div id="applyForm">
+                <b>Apply for a new loan</b>
+                <table>
+                    <tr>
+                        <td><b>Description:</b></td>
+                        <td><input type="text" id="description"></td>
+                    </tr>
+                    <tr>
+                        <td><b>Loan Amount:</b></td>
+                        <td><input type="text" id="balance">
+                        <input type="button" id="add" value="Add" onclick="Javascript:addRowToCurrentLoans();addRowToLoanHistory()"></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            </br>
+            <div id="payForm">
+                <b>Pay a loan</b>
+                <table>
+                    <tr>
+                        <td style="text-align:right"><b>S/N:</b></td>
+                        <td><input type="text" id="serial"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right"><b>Payment Amount:</b></td>
+                        <td><input type="text" id="payment">
+                        <input type="button" id="edit" value="Edit" onclick="Javascript:updateCurrentLoans()"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="Loan History">
+                <b>Loan History</b>
+                <table id="myLoanHistory"  border="1" cellpadding="2">
+                    <tr>
+                        <td><b>S/N</b></td>
+                        <td><b>Date</b></td>
+                        <td><b>Description</b></td>
+                        <td><b>Loan Amount</b></td>
+                        <td><b>Status</b></td>
+                    </tr>
+                </table>
+                &nbsp;
+            </div>
+        </table>
+    </center>
+</body>
+</html>

@@ -1,0 +1,45 @@
+.nav_bar {
+    padding-left: 80px;
+    padding-right: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_bar_item {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.nav_bar_item a:link {
+    color: grey;
+    font-size: 24px;
+    font-family: cursive;
+    text-decoration: none;
+    display: table-cell;
+    padding-left: 24px;
+}
+
+.main_div_1 {
+    width: 90%;
+    margin: 0 auto;
+    background: #f4f4f4;
+    padding: 12px 24px 40px 24px;
+}
+
+.main_div_table_1 {
+    padding: 20px 100px 20px 100px;
+}
+
+.content_spacing {
+    padding-right: 400px;
+}
+
+.main_div_2 {
+    width: 90%;
+    margin: 0 auto;
+    padding: 12px 24px 40px 24px;
+}
+
+.main_div_table_1 {
+
+}
