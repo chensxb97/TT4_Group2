@@ -7,7 +7,7 @@ function userLogin() {
         type: "GET",
         url: "check",
         data: {
-            "myvalue": email.concat(",", password),
+            "myvalue": email+","+password,
         },
         dataType: "json"
     }).done(function (json) {
@@ -15,15 +15,10 @@ function userLogin() {
             if (val === "Success") {
                 alert("Login Successful, directing you to home page");
                 document.location.href = "../home/Home.html"
+            } else{
+                alert("Error: " + val);
             }
         });
     });
-
-    // if(email==="test@abc.com" && password==="123123"){
-    //     alert("Success, directing you to home page");
-    //     document.location.href = "../home/Home.html"
-    // }else{
-    //     alert("Invalid credentials");
-    // }
 }
 
