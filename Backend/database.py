@@ -30,7 +30,7 @@ if main_list[0] == "login":
     try:
         login_username = main_list[1]
         login_password = main_list[2]
-        login_password_actual = config.get('user', login_username)
+        login_password_actual = config.get('userpassword', login_username)
         if login_password == login_password_actual:
             print("True")
         else:
@@ -54,7 +54,7 @@ if main_list[0] == "signup":
         mycursor.execute(sql, val)
         config.set('userpassword',signup_username, signup_password)
         config.set('userid',signup_username, signup_id)
-        with open(local_db_file, 'w') as configfile: 
+        with open(local_db_file, 'w') as configfile:
             config.write(configfile)
         print("True")
     except:
