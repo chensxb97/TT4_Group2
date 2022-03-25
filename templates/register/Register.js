@@ -7,21 +7,28 @@ function userRegister() {
     const balance = document.getElementById("register_balance").value
     const password = document.getElementById("register_password").value
 
-    $.ajax({
-        type: "GET",
-        url: "check",
-        data: {
-            "myvalue": name + "," + phone + "," + address + "," + email + "," + balance + "," + password,
-        },
-        dataType: "json"
-    }).done(function (json) {
-        $.each(json, function (key, val) {
-            if (val === "Success") {
-                alert("Registration Successful, directing you to home page");
-                document.location.href = "../home/Home.html"
-            } else {
-                alert("Error: " + val);
-            }
-        });
-    });
+    if (name != "" && email != "" && password != "" ) {
+        alert("Register Successful, directing you to home page");
+        document.location.href = "../home/Home.html"
+    }else{
+        alert("Error, please check credentials");
+    }
+
+    // $.ajax({
+    //     type: "GET",
+    //     url: "check",
+    //     data: {
+    //         "myvalue": name + "," + phone + "," + address + "," + email + "," + balance + "," + password,
+    //     },
+    //     dataType: "json"
+    // }).done(function (json) {
+    //     $.each(json, function (key, val) {
+    //         if (val === "Success") {
+    //             alert("Registration Successful, directing you to home page");
+    //             document.location.href = "../home/Home.html"
+    //         } else {
+    //             alert("Error: " + val);
+    //         }
+    //     });
+    // });
 }
