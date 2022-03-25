@@ -22,22 +22,28 @@ function updateCurrentLoans() {
     var payment = document.getElementById("payment");
 
     // Obtain old values by serial no
-
-    // GET THE CELLS COLLECTION OF THE CURRENT ROW.
     var objCells = table.rows.item(serial.value).cells;
     var curBalance = objCells.item(3).innerHTML;
 
     console.log(curBalance)
 
-    // // Update
+    // Update balance
     table.rows[serial.value].cells[3].innerHTML = curBalance - payment.value;
-
-    // Delete any rows with curBalance
     
+    console.log("HELLO")
+    
+    // Delete loan if it has negative curBalance + Update Loan History
+    console.log(parseInt(table.rows.item(serial.value).cells[3].innerText, 10))
+    if (parseInt(table.rows.item(serial.value).cells[3].innerText, 10) <= 0){
+        console.log("HI")
+        document.getElementById('myCurrentLoans').deleteRow(serial.value);
+        var loanTable = document.getElementById('myLoanHistory');
+        loanTable.rows[serial.value].cells[4].innerHTML = 'Completed';
+    };
+    console.log("WORLD")
 }
 
 function addRowToLoanHistory() {
-          
     var description = document.getElementById("description");
     var dt = Date()
     var balance = document.getElementById("balance");
@@ -54,7 +60,6 @@ function addRowToLoanHistory() {
     row.insertCell(4).innerHTML = 'Pending'
 }
 
- 
 function load() {
     
     console.log("Page load finished");
