@@ -17,9 +17,19 @@ just run this file and webserver will be started
 JSONObject = Dict[AnyStr, Any]
 JSONArray = List[Any]
 JSONStructure = Union[JSONArray, JSONObject]
-jqueryfile = os.path.realpath('../Frontend/jquery.js')
-loginfile = os.path.realpath('../templates/login/Login.html')
-homefile = os.path.realpath('../templates/home/Home.html')
+jqueryfile = os.path.realpath('../templates0/jquery.js')
+loginfile = os.path.realpath('../templates/login/login.html')
+homefile = os.path.realpath('../templates/home.html')
+productfile = os.path.realpath('../templates/product.html')
+add_productfile = os.path.realpath('../templates/add_product.html')
+basefile = os.path.realpath('../templates/base.html')
+indexfile = os.path.realpath('../templates/index.html')
+
+profilefile = os.path.realpath('../templates/profile.html')
+
+signupfile = os.path.realpath('../templates/signup.html')
+
+
 port = "80"
 api = FastAPI(openapi_url=None,docs_url=None,redoc_url=None)
 
@@ -48,6 +58,36 @@ async def displayfunc():
 @api.get("/home")
 async def displayfunc():
     with open(homefile, 'r') as temp6:
+        temp4 = temp6.read()
+    return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
+@api.get("/product")
+async def displayfunc():
+    with open(productfile, 'r') as temp6:
+        temp4 = temp6.read()
+    return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
+@api.get("/addproduct")
+async def displayfunc():
+    with open(add_productfile, 'r') as temp6:
+        temp4 = temp6.read()
+    return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
+@api.get("/base")
+async def displayfunc():
+    with open(basefile, 'r') as temp6:
+        temp4 = temp6.read()
+    return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
+@api.get("/index")
+async def displayfunc():
+    with open(indexfile, 'r') as temp6:
+        temp4 = temp6.read()
+    return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
+@api.get("/profile")
+async def displayfunc():
+    with open(profilefile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
