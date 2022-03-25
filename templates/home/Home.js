@@ -23,8 +23,7 @@ function addRowToCurrentLoans() {
     }).done(function (json) {
         $.each(json, function (key, val) {
             if (val === "Success") {
-                alert("Login Successful, directing you to home page");
-                document.location.href = "../home/Home.html"
+                alert("POST Successful");
             }
         });
     });
@@ -41,21 +40,33 @@ function updateCurrentLoans() {
     var curBalance = objCells.item(3).innerHTML;
 
     console.log(curBalance)
+    var newBalance = curBalance - payment.value;
 
     // Update balance
-    table.rows[serial.value].cells[3].innerHTML = curBalance - payment.value;
+    table.rows[serial.value].cells[3].innerHTML = newBalance;
+
+    $.ajax({
+        type: "PATCH",
+        url: "check",
+        data: {
+            "myvalue": newBalance,
+        },
+        dataType: "json"
+    }).done(function (json) {
+        $.each(json, function (key, val) {
+            if (val === "Success") {
+                alert("PATCH Successful");
+            }
+        });
+    });
     
-    console.log("HELLO")
-    
-    // Delete loan if it has negative curBalance + Update Loan History
+    // Delete loan from frontend if it has negative curBalance + Update Loan History
     console.log(parseInt(table.rows.item(serial.value).cells[3].innerText, 10))
     if (parseInt(table.rows.item(serial.value).cells[3].innerText, 10) <= 0){
-        console.log("HI")
         document.getElementById('myCurrentLoans').deleteRow(serial.value);
         var loanTable = document.getElementById('myLoanHistory');
         loanTable.rows[serial.value].cells[4].innerHTML = 'Completed';
     };
-    console.log("WORLD")
 }
 
 function addRowToLoanHistory() {
@@ -75,7 +86,5 @@ function addRowToLoanHistory() {
 }
 
 function load() {
-    
     console.log("Page load finished");
- 
 }
