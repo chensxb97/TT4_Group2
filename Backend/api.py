@@ -26,6 +26,7 @@ balance = os.path.realpath('../templates/home/Home.html')
 signup = os.path.realpath('../templates/register/Register.html')
 # basefile = os.path.realpath('../templates/base.html')
 # indexfile = os.path.realpath('../templates/index.html')
+landingfile = os.path.realpath('../templates/landing/index.html')
 
 # profilefile = os.path.realpath('../templates/profile.html')
 
@@ -49,8 +50,15 @@ async def signupfunc():
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
+@api.get("/landing")
+async def landingfilefunc():
+    with open(landingfile, 'r') as temp6:
+        temp4 = temp6.read()
+    return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
-## to check the login info 
+
+
+## to check the login info
 @api.get("/check")
 async def checkfunc(myvalue: str):
     print("Checking: "+check)
@@ -67,7 +75,7 @@ async def checkfunc(myvalue: str):
     else:
         return {"Result": "Wait"}
 
-## login endpoint to display 
+## login endpoint to display
 @api.get("/login")
 async def loginfunc():
     with open(loginfile, 'r') as temp6:
