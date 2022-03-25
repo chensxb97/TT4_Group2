@@ -42,16 +42,25 @@ async def jqueryfunc():
     content_type, _ = guess_type(jqueryfile)
     return Response(content, media_type=content_type)
 
+## to check the login info 
 @api.get("/check")
 async def checkfunc(myvalue: str):
-    email, password = myvalue.split(",")
     print("Checking: "+check)
+    email, password = myvalue.split(",")
+    check_email = db(login, email)
+    check_password = db(login, password)
     
+    if email != check_email or password != check_password:
+        print("Please try again as your login information is wrong. ")
+    else :
+        homefunc("/home")
+
     if 1==1:
         return {"Result": "Now"}
     else:
         return {"Result": "Wait"}
 
+## login endpoint to display 
 @api.get("/login")
 async def loginfunc():
     with open(loginfile, 'r') as temp6:
