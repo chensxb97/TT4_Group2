@@ -50,46 +50,53 @@ async def checkfunc(myvalue: str):
         return {"Result": "Wait"}
 
 @api.get("/login")
-async def displayfunc():
+async def loginfunc():
     with open(loginfile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
 @api.get("/home")
-async def displayfunc():
+async def homefunc():
     with open(homefile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
 @api.get("/product")
-async def displayfunc():
+async def productfunc():
     with open(productfile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
 @api.get("/addproduct")
-async def displayfunc():
+async def addproductfunc():
     with open(add_productfile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
 @api.get("/base")
-async def displayfunc():
+async def basefunc():
     with open(basefile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
 @api.get("/index")
-async def displayfunc():
+async def indexfunc():
     with open(indexfile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
 @api.get("/profile")
-async def displayfunc():
+async def profilefunc():
     with open(profilefile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
+@api.get("/logout")
+async def logoutfunc():
+    with open(logoutfile, 'r') as temp6:
+        temp4 = temp6.read()
+    return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
 
 host = "0.0.0.0"
 api.add_middleware(CORSMiddleware,allow_origins="*".split(","),allow_methods=["*"],allow_headers=["*"])
