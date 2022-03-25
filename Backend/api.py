@@ -18,18 +18,17 @@ JSONObject = Dict[AnyStr, Any]
 JSONArray = List[Any]
 JSONStructure = Union[JSONArray, JSONObject]
 jqueryfile = os.path.realpath('../templates0/jquery.js')
-loginfile = os.path.realpath('../templates/login/login.html')
-homefile = os.path.realpath('../templates/home.html')
-productfile = os.path.realpath('../templates/product.html')
-loan_amount
-add_productfile = os.path.realpath('../templates/add_product.html')
-balance
-basefile = os.path.realpath('../templates/base.html')
-indexfile = os.path.realpath('../templates/index.html')
+loginfile = os.path.realpath('../templates/login/Login.html')
+homefile = os.path.realpath('../templates/home/Home.html')
+loan_amount = os.path.realpath('../templates/home/Home.html')
+balance = os.path.realpath('../templates/home/Home.html')
 
-profilefile = os.path.realpath('../templates/profile.html')
+# basefile = os.path.realpath('../templates/base.html')
+# indexfile = os.path.realpath('../templates/index.html')
 
-signupfile = os.path.realpath('../templates/signup.html')
+# profilefile = os.path.realpath('../templates/profile.html')
+
+# signupfile = os.path.realpath('../templates/signup.html')
 
 
 port = "80"
