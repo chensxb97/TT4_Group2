@@ -10,6 +10,15 @@
     margin-bottom: auto;
 }
 
+.nav_bar_item a:link {
+    color: grey;
+    font-size: 24px;
+    font-family: cursive;
+    text-decoration: none;
+    display: table-cell;
+    padding-left: 24px;
+}
+
 .main_div_1{
 
 }
