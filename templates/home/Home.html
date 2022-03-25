@@ -27,7 +27,6 @@
                         <td><b>Date</b></td>
                         <td><b>Description</b></td>
                         <td><b>Balance</b></td>
-                        <td><b>Paid</b></td>
                     </tr>
                 </table>
                 &nbsp;
@@ -42,7 +41,7 @@
                     <tr>
                         <td><b>Loan Amount:</b></td>
                         <td><input type="text" id="balance">
-                        <input type="button" id="add" value="Add" onclick="Javascript:addRowToCurrentLoans()"></td>
+                        <input type="button" id="add" value="Add" onclick="Javascript:addRowToCurrentLoans();addRowToLoanHistory()"></td>
                     </tr>
                 </table>
             </div>
@@ -73,11 +72,13 @@
 
             <div id="Loan History">
                 <b>Loan History</b>
-                <table id="myLoanHistory" border="1" cellpadding="2">
+                <table id="myLoanHistory"  border="1" cellpadding="2">
                     <tr>
-                        <td>&nbsp;</td>
+                        <td><b>S/N</b></td>
+                        <td><b>Date</b></td>
                         <td><b>Description</b></td>
-                        <td><b>Amounts</b></td>
+                        <td><b>Loan Amount</b></td>
+                        <td><b>Status</b></td>
                     </tr>
                 </table>
                 &nbsp;
