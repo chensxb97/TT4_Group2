@@ -1,8 +1,7 @@
 function addRowToCurrentLoans() {
           
-    var description = document.getElementById("description");
     var dt = Date()
-    var balance = document.getElementById("balance");
+    var balance = document.getElementById("balance").value;
     var table = document.getElementById("myCurrentLoans");
     var lastRow = table.rows.length;
 
@@ -11,10 +10,26 @@ function addRowToCurrentLoans() {
     
     row.insertCell(0).innerHTML = lastRow?lastRow:0
     row.insertCell(1).innerHTML = dt
-    row.insertCell(2).innerHTML= description.value;
-    row.insertCell(3).innerHTML= balance.value;
+    row.insertCell(2).innerHTML= '-';
+    row.insertCell(3).innerHTML= balance;
+
+    $.ajax({
+        type: "POST",
+        url: "check",
+        data: {
+            "myvalue": balance,
+        },
+        dataType: "json"
+    }).done(function (json) {
+        $.each(json, function (key, val) {
+            if (val === "Success") {
+                alert("Login Successful, directing you to home page");
+                document.location.href = "../home/Home.html"
+            }
+        });
+    });
 }
- 
+
 function updateCurrentLoans() {
 
     var table = document.getElementById("myCurrentLoans");
@@ -44,20 +59,19 @@ function updateCurrentLoans() {
 }
 
 function addRowToLoanHistory() {
-    var description = document.getElementById("description");
-    var dt = Date()
-    var balance = document.getElementById("balance");
+    var dt = Date();
+    var balance = document.getElementById("balance").value;
     var table = document.getElementById("myLoanHistory");
     var lastRow = table.rows.length;
 
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     
-    row.insertCell(0).innerHTML = lastRow?lastRow:0
-    row.insertCell(1).innerHTML = dt
-    row.insertCell(2).innerHTML= description.value;
-    row.insertCell(3).innerHTML= balance.value;
-    row.insertCell(4).innerHTML = 'Pending'
+    row.insertCell(0).innerHTML = lastRow?lastRow:0;
+    row.insertCell(1).innerHTML = dt;
+    row.insertCell(2).innerHTML= '-';
+    row.insertCell(3).innerHTML= balance;
+    row.insertCell(4).innerHTML = 'Pending';
 }
 
 function load() {
