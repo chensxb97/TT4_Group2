@@ -10,6 +10,7 @@ from pathlib import Path
 from mimetypes import guess_type
 import sys
 
+
 """
 just run this file and webserver will be started
 """
@@ -17,19 +18,18 @@ just run this file and webserver will be started
 JSONObject = Dict[AnyStr, Any]
 JSONArray = List[Any]
 JSONStructure = Union[JSONArray, JSONObject]
-jqueryfile = os.path.realpath('../templates0/jquery.js')
-loginfile = os.path.realpath('../templates/login/login.html')
-homefile = os.path.realpath('../templates/home.html')
-productfile = os.path.realpath('../templates/product.html')
-loan_amount
-add_productfile = os.path.realpath('../templates/add_product.html')
-balance
-basefile = os.path.realpath('../templates/base.html')
-indexfile = os.path.realpath('../templates/index.html')
+jqueryfile = os.path.realpath('../templates/jquery.js')
+loginfile = os.path.realpath('../templates/login/Login.html')
+homefile = os.path.realpath('../templates/home/Home.html')
+loan_amount = os.path.realpath('../templates/home/Home.html')
+balance = os.path.realpath('../templates/home/Home.html')
 
-profilefile = os.path.realpath('../templates/profile.html')
+# basefile = os.path.realpath('../templates/base.html')
+# indexfile = os.path.realpath('../templates/index.html')
 
-signupfile = os.path.realpath('../templates/signup.html')
+# profilefile = os.path.realpath('../templates/profile.html')
+
+# signupfile = os.path.realpath('../templates/signup.html')
 
 
 port = "80"
@@ -43,16 +43,24 @@ async def jqueryfunc():
     content_type, _ = guess_type(jqueryfile)
     return Response(content, media_type=content_type)
 
+## to check the login info 
 @api.get("/check")
 async def checkfunc(myvalue: str):
-    email, password = myvalue.split(",")
     print("Checking: "+check)
-    
+    email, password = myvalue.split(",")
+    check_email = calldb("login", email)
+    check_password = calldb("login", password)
+    if email != check_email and password != check_password:
+        return print("Please try again as your login information is wrong. ")
+    else :
+        homefunc("/home")
+
     if 1==1:
         return {"Result": "Now"}
     else:
         return {"Result": "Wait"}
 
+## login endpoint to display 
 @api.get("/login")
 async def loginfunc():
     with open(loginfile, 'r') as temp6:
@@ -62,12 +70,14 @@ async def loginfunc():
 
 @api.get("/home")
 async def homefunc():
+
     with open(homefile, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
 
 @api.get("/loan_amount")
 async def loan_amountfunc():
+
     with open(loan_amount, 'r') as temp6:
         temp4 = temp6.read()
     return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))

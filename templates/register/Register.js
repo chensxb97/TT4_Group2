@@ -1,13 +1,17 @@
 function userRegister() {
 
+    const name = document.getElementById("register_name").value
+    const phone = document.getElementById("register_phone").value
+    const address = document.getElementById("register_address").value
     const email = document.getElementById("register_email").value
+    const balance = document.getElementById("register_balance").value
     const password = document.getElementById("register_password").value
 
     $.ajax({
         type: "GET",
         url: "check",
         data: {
-            "myvalue": email.concat(",", password),
+            "myvalue": name + "," + phone + "," + address + "," + email + "," + balance + "," + password,
         },
         dataType: "json"
     }).done(function (json) {
@@ -15,6 +19,8 @@ function userRegister() {
             if (val === "Success") {
                 alert("Registration Successful, directing you to home page");
                 document.location.href = "../home/Home.html"
+            } else {
+                alert("Error: " + val);
             }
         });
     });
