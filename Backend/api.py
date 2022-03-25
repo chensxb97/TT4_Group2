@@ -23,7 +23,7 @@ loginfile = os.path.realpath('../templates/login/Login.html')
 homefile = os.path.realpath('../templates/home/Home.html')
 loan_amount = os.path.realpath('../templates/home/Home.html')
 balance = os.path.realpath('../templates/home/Home.html')
-
+signup = os.path.realpath('../templates/register/Register.html')
 # basefile = os.path.realpath('../templates/base.html')
 # indexfile = os.path.realpath('../templates/index.html')
 
@@ -42,6 +42,13 @@ async def jqueryfunc():
         content = f.read()
     content_type, _ = guess_type(jqueryfile)
     return Response(content, media_type=content_type)
+
+@api.get("/signup")
+async def signupfunc():
+    with open(signup, 'r') as temp6:
+        temp4 = temp6.read()
+    return HTMLResponse(temp4.replace("placeholderbody","replacing_is_working"))
+
 
 ## to check the login info 
 @api.get("/check")
